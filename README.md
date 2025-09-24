@@ -97,15 +97,10 @@ client_user	client123	Client
 * The project comes with a sample dataset (sample_queries_250.csv) containing 1000 client queries generated for testing purposes.
 
 📂 Dataset Columns:
-```
-•	email 
-•	mobile 
-•	query_heading 
-•	query_description 
-•	query_created_time 
-•	status 
-•	query_closed_time 
-```
+
+`email`,`mobile`,`query_heading`,`query_description`
+
+`query_created_time`,`status`,`query_closed_time`
 
 ## 🔄 How It Works
 1. User Authentication → New user can Register and Login based on role.
