@@ -1,178 +1,128 @@
-💼 Client Query Management System
+# 💼 Client Query Management System 
 
-📖 About the Project
+## 📖 About the Project
 
-The Client Query Management System (CQMS) is a Streamlit web application that enables organizations to collect, track, and resolve client queries efficiently.
-It is designed to bridge the communication gap between clients and support teams.
+The **Client Query Management System** is a Streamlit web application that enables organizations to collect, track, and resolve client queries efficiently and it is designed to bridge the communication gap between clients and support teams.
 
-🔨 Development Process
+### 🔨 Development Process
+* Database Setup → Created the Database and tables in MySQL.
+* Connection Setup → Configured database connectivity in VS Code using connection mysql.connector.connect with MySQL credentials.
+* Prototype Testing → Verified database operations and query handling in a Jupyter Notebook (.ipynb).
+* Script Conversion → Migrated the working prototype into a Python script (.py).
+* UI Development → Built the Streamlit dashboard 
+### ✨ Key Features
+* Login and Register interface → new user can register and login 
+* 👤 Client Interface → Submit and track queries with details and attachments.
+* 🛠️ Support Dashboard → View, filter, and resolve client queries..
+### ⚙️ Tech Stack
+* Database: MySQL
+* Frontend/UI: Streamlit
+* Data Handling: Pandas
+* Database Connectivity:  mysql-connector-python
 
-Database Setup → Created the database and tables in MySQL.
+## 📋Project Overview
+* The Client Query Management (CQMS) provides a seamless way for organizations to handle client issues. Clients can submit their queries with necessary details, and the support team can manage, track, and resolve them in real time.
 
-Connection Setup → Configured database connectivity in VS Code using mysql.connector.connect.
+## 🎯Features:
+### 🔐 Login & Register 
+#### 📝 User Registration
+* Create an account with Username, Email, Password, and Role (Client or Support).
+* Prevents duplicate usernames or emails.
+* Stores passwords securely using SHA256 hashing.
+#### 🔑 User Login
+* Login with username and password.
+* Verifies password with stored hash for security.
+* Maintains session state after successful login.
+#### 🎭 Role-Based Access
+* Client Role → Can only submit and track their own queries.
+* Support Role → Can view, manage, and close all queries.
+### 👤 Client Features
+* 📝 Submit Queries → Fill details like email, mobile, query heading, description, and can upload screenshots.
+* 📂 Track Queries → Search by email and view query history with status (Open/Closed).
+* 📸 File Upload Support → Attach screenshots or documents with each query.
+* ⏱️ Real-time Status Updates → See when queries are created, updated, or closed
+### 👨‍💻 Support Team Features
+* 📋 View All Queries → Access every query submitted by clients.
+* 🔎 Filter Queries → Filter by status: All, Open, or Closed.
+* 🛠️ Manage & Close Queries → Update query status and add closing time.
+* 🖼️ Preview Attachments → View uploaded screenshots for better issue understanding.
+  
+## ⚙️ Setup & Installation
+### 1️⃣ Clone the Repository
 
-Prototype Testing → Verified database operations in Jupyter Notebook (.ipynb).
-
-Script Conversion → Migrated working prototype into a Python script (.py).
-
-UI Development → Built the Streamlit dashboard for clients & support team.
-
-✨ Key Features
-
-🔐 Login & Register Interface → New users can sign up and log in.
-
-👤 Client Interface → Submit and track queries with details & attachments.
-
-🛠 Support Dashboard → View, filter, and resolve client queries.
-
-⚙️ Tech Stack
-
-Database: MySQL
-
-Frontend/UI: Streamlit
-
-Data Handling: Pandas
-
-Database Connectivity: mysql-connector-python
-
-📋 Project Overview
-
-The Client Query Management System provides a seamless way for organizations to handle client issues.
-Clients can submit queries with necessary details, while the support team can manage, track, and resolve them in real time.
-
-🎯 Features
-🔐 Login & Register
-📝 User Registration
-
-Create an account with Username, Email, Password, and Role (Client/Support).
-
-Prevents duplicate usernames or emails.
-
-Passwords stored securely using SHA256 hashing.
-
-🔑 User Login
-
-Login with username and password.
-
-Password verification with stored hash.
-
-Maintains session state after login.
-
-🎭 Role-Based Access
-
-Client Role → Submit & track own queries.
-
-Support Role → View, manage, and close all queries.
-
-👤 Client Features
-
-📝 Submit queries with email, mobile, heading, description, and file upload.
-
-📂 Track query history by email (with Open/Closed status).
-
-📸 Attach screenshots/documents.
-
-⏱ Real-time status updates for created, updated, and closed queries.
-
-👨‍💻 Support Team Features
-
-📋 View all queries submitted by clients.
-
-🔎 Filter by status → All / Open / Closed.
-
-🛠 Manage & close queries with closing time.
-
-🖼 Preview attachments for better issue understanding.
-
-⚙️ Setup & Installation
-1️⃣ Clone the Repository
+```
 git clone https://github.com/your-username/client-query-management-system.git
 cd client-query-management-system
+```
+### 2️⃣ Create a Virtual Environment & Activate
 
-2️⃣ Create a Virtual Environment & Activate
+```
 python -m venv venv
 # Activate environment
 source venv/bin/activate   # (Linux/Mac)
 venv\Scripts\activate      # (Windows)
 
-# Install dependencies
+#Install packages
 pip install -r requirements.txt
+```
+
+#### requirements.txt:
+* streamlit
+* pandas
+* mysql-connector-python
+
+### 3️⃣ Configure MySQL Database 
+#### Create Database
 
 
-requirements.txt:
-
-streamlit
-pandas
-mysql-connector-python
-
-3️⃣ Configure MySQL Database
+```
 CREATE DATABASE client_query_db;
 USE client_query_db;
+```
 
-4️⃣ Run the Application
+### 4️⃣ Run the Application
+```
 streamlit run app.py
+```
+###### The app will launch in your browser at :👉 http://localhost:8501/
 
+## 🔑 Sample Users
+username	password	Role
 
-➡️ The app will launch at 👉 http://localhost:8501
-
-🔑 Sample Users
-Username	Password	Role
 support_admin	support123	Support
+
 client_user	client123	Client
-📊 Dataset
 
-The project includes a sample dataset (sample_queries_250.csv) with 1000 client queries for testing.
+## 📊 Dataset
+* The project comes with a sample dataset (sample_queries_250.csv) containing 1000 client queries generated for testing purposes.
 
-Dataset Columns:
+📂 Dataset Columns:
+```
+•	email 
+•	mobile 
+•	query_heading 
+•	query_description 
+•	query_created_time 
+•	status 
+•	query_closed_time 
+```
 
-email
+## 🔄 How It Works
+1. User Authentication → New user can Register and Login based on role.
+2.	Client Side → Client can Submit queries with only Registered Email ID.
+3.	Support Side → View & filter queries, update status to Closed with datetime.
+4.	MySQL → ensures real-time updates.
 
-mobile
+## 🎯 Use Case
+###### The Client Query Management System helps organizations streamline the process of handling client queries, ensuring faster resolution and better customer experience.
+* 🏢 IT Companies → For managing client support tickets and technical issues.
+* 🎓 Educational Institutions → To handle student queries, complaints, and feedback.
+* 🛠 Service-Based Businesses → For tracking customer complaints, requests, and feedback.
+* 🏥 Healthcare Sector → For managing patient inquiries or appointment-related issues.
+* 🛒 E-commerce Platforms → To resolve order, delivery, or payment-related queries.
 
-query_heading
-
-query_description
-
-query_created_time
-
-status
-
-query_closed_time
-
-🔄 How It Works
-
-User Authentication → Register/Login with role.
-
-Client Side → Submit queries (only with registered email).
-
-Support Side → View & filter queries, update status, close queries.
-
-Database (MySQL) → Ensures real-time updates.
-
-🎯 Use Cases
-
-🏢 IT Companies → Manage support tickets & technical issues.
-
-🎓 Educational Institutions → Handle student queries, complaints, feedback.
-
-🛠 Service-Based Businesses → Track customer complaints & requests.
-
-🏥 Healthcare Sector → Manage patient inquiries & appointments.
-
-🛒 E-commerce Platforms → Resolve order, delivery, or payment issues.
-
-🚀 Future Enhancements
-
-📌 Role-based dashboards (Admins, Clients, Support).
-
-📊 Analytics → Query trends & resolution time tracking.
-
-✉️ Email/SMS notifications for query updates.
-
-📂 Export queries as CSV/Excel for reporting.
-
-✅ Now it’s clean, structured, and GitHub-ready.
-
-Do you also want me to add badges (e.g., Python version, Streamlit, MySQL) at the top for a more professional look?
-
-You said:
+## Future Enhancements
+* 📌 Role-Based Dashboards → Separate views for admins, clients, and support staff.
+* 📊 Advanced Analytics → Query trends, resolution time tracking, and performance metrics.
+* ✉️ Email / SMS Notifications → Notify clients when their queries are updated or resolved.
+* 📂 Export Options → Download queries as CSV/Excel for reporting.
